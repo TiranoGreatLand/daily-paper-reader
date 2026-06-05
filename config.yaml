@@ -25,3 +25,65 @@ subscriptions:
     stage: A
     diff_threshold_pct: 15
   keyword_recall_mode: or
+  intent_profiles:
+    - tag: llm-app
+      description: 查找LLM在排序、重排、评估、用户画像、商品定价、OTA、房屋定价等方向的顶会论文
+      enabled: true
+      paper_sources:
+        - arxiv
+      keywords:
+        - keyword: large language model re-ranking
+          keyword_cn: 大语言模型重排
+          query: applying large language models to re-ranking
+        - keyword: large language model search ranking evaluation
+          keyword_cn: LLM用于搜索排序评估
+          query: evaluating search ranking using LLM
+        - keyword: large language model user profiling
+          keyword_cn: 大语言模型用户画像
+          query: user profiling with large language models
+        - keyword: large language model product pricing
+          keyword_cn: 大语言模型商品定价
+          query: product pricing using large language models
+        - keyword: large language model online travel agency
+          keyword_cn: 大语言模型在OTA行业的应用
+          query: large language model applications in online travel agency
+        - keyword: large language model house pricing
+          keyword_cn: 大语言模型房屋定价
+          query: house pricing with large language models
+      intent_queries:
+        - query: LLM applications in information retrieval ranking and re ranking
+          query_cn: LLM在信息检索排序和重排中的应用
+          enabled: true
+          source: manual
+          note: ''
+        - query: LLM for ranking evaluation in search and recommendation systems
+          query_cn: LLM在搜索和推荐系统排序评估中的应用
+          enabled: true
+          source: manual
+          note: ''
+        - query: user profiling and product pricing using large language models
+          query_cn: 使用大语言模型的用户画像和商品定价
+          enabled: true
+          source: manual
+          note: ''
+        - query: large language models in online travel agency and house pricing
+          query_cn: 大语言模型在OTA和房屋定价中的应用
+          enabled: true
+          source: manual
+          note: ''
+      updated_at: '2026-06-05T14:16:19.610Z'
+source_backends:
+  arxiv:
+    papers_table: arxiv_papers
+    use_vector_rpc: true
+    vector_rpc: match_arxiv_papers
+    vector_rpc_exact: match_arxiv_papers_exact
+    use_bm25_rpc: true
+    bm25_rpc: match_arxiv_papers_bm25
+    sync_table: arxiv_sync_status
+    sync_success_value: success
+    schema: public
+    kind: supabase
+    enabled: true
+    url: https://lyucdwgefyfbmaiopjbk.supabase.co
+    anon_key: sb_publishable_lX-oi64Uxyd7SIVv3_w2Uw_MTOojeKq
